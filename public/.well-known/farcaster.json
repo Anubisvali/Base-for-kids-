@@ -1,0 +1,37 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "frame": {
+    "version": "1",
+    "name": "Base For Kids",
+    "subtitle": "Mint with purpose on Base",
+    "tagline": "Every mint funds a Christmas gift for an abandoned child and grants lasting benefits as part of the Base For Kids community.",
+    "description": "Every mint funds a Christmas gift for an abandoned child and grants lasting benefits as part of the Base For Kids community.",
+    "homeUrl": "https://roxann-iridic-synonymously.ngrok-free.dev/",
+    "iconUrl": "https://roxann-iridic-synonymously.ngrok-free.dev/base-for-kids-cover.png",
+    "heroImageUrl": "https://roxann-iridic-synonymously.ngrok-free.dev/base-for-kids-cover.png",
+    "splashImageUrl": "https://roxann-iridic-synonymously.ngrok-free.dev/base-for-kids-cover.png",
+    "splashBackgroundColor": "#000000",
+    "primaryCategory": "social",
+    "tags": [
+      "christmas",
+      "charity",
+      "kids",
+      "nft",
+      "base",
+      "community"
+    ],
+    "webhookUrl": "",
+    "developer": {
+      "name": "Valentin Popa",
+      "website": "https://roxann-iridic-synonymously.ngrok-free.dev/",
+      "contactEmail": "valentin.popa.g@gmail.com"
+    },
+    "screenHints": [
+      "https://roxann-iridic-synonymously.ngrok-free.dev/base-for-kids-cover.png"
+    ]
+  }
+}
