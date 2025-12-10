@@ -456,7 +456,7 @@ export function HomeTab() {
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-purple-500/20">
             <h3 className="text-white font-bold mb-3">Why hold a Base For Kids NFT?</h3>
             <ul className="space-y-2 text-white/90 text-sm">
-              <li>• You've helped a child receive a real Christmas gift.</li>
+              <li>• You&apos;ve helped a child receive a real Christmas gift.</li>
               <li>• Access to future drops, surprises and experiments.</li>
               <li>• Priority for future Base For Kids mini-apps & frames.</li>
               <li>• Being part of a community that actually gives back.</li>

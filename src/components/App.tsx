@@ -85,19 +85,20 @@ export default function App({ title }: AppProps = { title: "Base For Kids" }) {
 
     // Folosim double RAF pentru a ne asigura că DOM-ul este complet gata
     // Conform best practices pentru a evita content reflow
-    let rafId1: number;
-    let rafId2: number;
-    
-    rafId1 = requestAnimationFrame(() => {
-      rafId2 = requestAnimationFrame(() => {
+    const rafId1 = requestAnimationFrame(() => {
+      const rafId2 = requestAnimationFrame(() => {
         // Apelăm ready() după ce DOM-ul este complet renderat
         callReady();
       });
+      
+      // Cleanup pentru rafId2
+      return () => {
+        if (rafId2) cancelAnimationFrame(rafId2);
+      };
     });
 
     return () => {
       if (rafId1) cancelAnimationFrame(rafId1);
-      if (rafId2) cancelAnimationFrame(rafId2);
     };
   }, []); // Rulează o singură dată la montarea componentei
 
