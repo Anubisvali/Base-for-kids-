@@ -10,10 +10,10 @@
     "subtitle": "Mint with purpose on Base",
     "tagline": "Every mint funds a Christmas gift for an abandoned child and grants lasting benefits as part of the Base For Kids community.",
     "description": "Every mint funds a Christmas gift for an abandoned child and grants lasting benefits as part of the Base For Kids community.",
-    "homeUrl": "https://roxann-iridic-synonymously.ngrok-free.dev/",
-    "iconUrl": "https://roxann-iridic-synonymously.ngrok-free.dev/base-for-kids-cover.png",
-    "heroImageUrl": "https://roxann-iridic-synonymously.ngrok-free.dev/base-for-kids-cover.png",
-    "splashImageUrl": "https://roxann-iridic-synonymously.ngrok-free.dev/base-for-kids-cover.png",
+    "homeUrl": "https://base-for-kids.vercel.app/",
+    "iconUrl": "https://base-for-kids.vercel.app/icon.png",
+    "heroImageUrl": "https://base-for-kids.vercel.app/Base-for-kids-cover.png",
+    "splashImageUrl": "https://base-for-kids.vercel.app/splash.png",
     "splashBackgroundColor": "#000000",
     "primaryCategory": "social",
     "tags": [
@@ -27,11 +27,11 @@
     "webhookUrl": "",
     "developer": {
       "name": "Valentin Popa",
-      "website": "https://roxann-iridic-synonymously.ngrok-free.dev/",
+      "website": "https://base-for-kids.vercel.app/",
       "contactEmail": "valentin.popa.g@gmail.com"
     },
     "screenHints": [
-      "https://roxann-iridic-synonymously.ngrok-free.dev/base-for-kids-cover.png"
+      "https://base-for-kids.vercel.app/Base-for-kids-cover.png"
     ]
   }
 }
