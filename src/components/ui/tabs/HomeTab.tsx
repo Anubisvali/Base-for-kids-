@@ -9,12 +9,20 @@ import { Button } from '../Button';
 import { ShareButton } from '../Share';
 import { useMiniApp } from '@neynar/react';
 import { APP_URL } from '~/lib/constants';
+import { Tab } from '../../App';
 
-export function HomeTab() {
+interface HomeTabProps {
+  setActiveTab?: (tab: Tab) => void;
+}
+
+export function HomeTab({ setActiveTab }: HomeTabProps = {}) {
   const { address, isConnected } = useAccount();
   const { connect, connectors } = useConnect();
   const [quantity, setQuantity] = useState(1);
-  const { context } = useMiniApp();
+  const { context, setActiveTab: setActiveTabFromSDK } = useMiniApp();
+  
+  // Use SDK's setActiveTab if available, otherwise use prop
+  const handleSetActiveTab = setActiveTabFromSDK || setActiveTab;
   
   // Calculează valoarea totală (Preț * Cantitate) în Wei
   const totalValue = BigInt(quantity) * MINT_PRICE_WEI;
@@ -273,6 +281,15 @@ export function HomeTab() {
               </svg>
               View on OpenSea
             </a>
+            {isConnected && handleSetActiveTab && (
+              <button
+                onClick={() => handleSetActiveTab(Tab.Collection)}
+                className="inline-flex items-center gap-1.5 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white text-xs font-medium px-3 py-1 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                <span>🎁</span>
+                My Collection
+              </button>
+            )}
           </div>
           <h1 className="text-4xl font-bold text-white mb-3">Base For Kids</h1>
           

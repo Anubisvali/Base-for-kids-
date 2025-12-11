@@ -6,7 +6,7 @@ import { sdk } from "@farcaster/miniapp-sdk";
 
 import { Header } from "~/components/ui/Header";
 import { Footer } from "~/components/ui/Footer";
-import { HomeTab, WalletTab } from "~/components/ui/tabs";
+import { HomeTab, WalletTab, CollectionTab } from "~/components/ui/tabs";
 import { AddToFavoritesBanner } from "~/components/ui/AddToFavoritesBanner";
 import { USE_WALLET } from "~/lib/constants";
 import { useNeynarUser } from "~/hooks/useNeynarUser";
@@ -17,6 +17,7 @@ export enum Tab {
   Actions = "actions",
   Context = "context",
   Wallet = "wallet",
+  Collection = "collection",
 }
 
 export interface AppProps {
@@ -118,8 +119,9 @@ export default function App({ title }: AppProps = { title: "Base For Kids" }) {
       <Header neynarUser={neynarUser} />
 
       <div className="min-h-screen">
-        {currentTab === Tab.Home && <HomeTab />}
+        {currentTab === Tab.Home && <HomeTab setActiveTab={setActiveTab} />}
         {currentTab === Tab.Wallet && <WalletTab />}
+        {currentTab === Tab.Collection && <CollectionTab />}
 
         {/* Footer ascuns conform cererii */}
         {/* <Footer activeTab={currentTab as Tab} setActiveTab={setActiveTab} showWallet={USE_WALLET} /> */}

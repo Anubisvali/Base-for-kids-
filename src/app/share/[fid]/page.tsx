@@ -13,7 +13,8 @@ export async function generateMetadata({
   params: Promise<{ fid: string }>;
 }): Promise<Metadata> {
   const { fid } = await params;
-  const imageUrl = `${APP_URL}/api/opengraph-image?fid=${fid}`;
+  // Use Base For Kids cover image (Santa with gift) instead of user profile
+  const imageUrl = `${APP_URL}/Base-for-kids-cover.png`;
 
   return {
     title: `${APP_NAME} - Share`,
