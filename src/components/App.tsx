@@ -7,6 +7,7 @@ import { sdk } from "@farcaster/miniapp-sdk";
 import { Header } from "~/components/ui/Header";
 import { Footer } from "~/components/ui/Footer";
 import { HomeTab, WalletTab } from "~/components/ui/tabs";
+import { AddToFavoritesBanner } from "~/components/ui/AddToFavoritesBanner";
 import { USE_WALLET } from "~/lib/constants";
 import { useNeynarUser } from "~/hooks/useNeynarUser";
 
@@ -123,6 +124,9 @@ export default function App({ title }: AppProps = { title: "Base For Kids" }) {
         {/* Footer ascuns conform cererii */}
         {/* <Footer activeTab={currentTab as Tab} setActiveTab={setActiveTab} showWallet={USE_WALLET} /> */}
       </div>
+
+      {/* Add to Favorites Banner - appears on app open */}
+      <AddToFavoritesBanner />
     </div>
   );
 }

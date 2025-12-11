@@ -6,11 +6,15 @@ import { useState, useEffect } from 'react';
 import { BFK_CONTRACT_ADDRESS, MINT_PRICE_WEI, MAX_MINT_PER_WALLET, MAX_TOTAL_SUPPLY } from '../../../lib/contracts';
 import { abi as BFK_ABI } from '../../../lib/BFK_ABI';
 import { Button } from '../Button';
+import { ShareButton } from '../Share';
+import { useMiniApp } from '@neynar/react';
+import { APP_URL } from '~/lib/constants';
 
 export function HomeTab() {
   const { address, isConnected } = useAccount();
   const { connect, connectors } = useConnect();
   const [quantity, setQuantity] = useState(1);
+  const { context } = useMiniApp();
   
   // Calculează valoarea totală (Preț * Cantitate) în Wei
   const totalValue = BigInt(quantity) * MINT_PRICE_WEI;
@@ -413,9 +417,20 @@ export function HomeTab() {
               </Button>
               {/* Status Messages */}
               {isConfirmed && (
-                <p className="text-green-400 text-sm mt-3 text-center font-medium">
-                  Mint Successful! 🎉
-                </p>
+                <div className="mt-4 space-y-3">
+                  <p className="text-green-400 text-sm text-center font-medium">
+                    Mint Successful! 🎉
+                  </p>
+                  {/* Share Cast Button */}
+                  <ShareButton
+                    buttonText="Share Your Mint on Farcaster"
+                    cast={{
+                      text: `Just minted ${quantity} Base For Kids NFT${quantity > 1 ? 's' : ''}! 🎁 Every mint funds a Christmas gift for an abandoned child. Join the cause on Base!`,
+                      embeds: [`${APP_URL}/share/${context?.user?.fid || ''}`],
+                    }}
+                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+                  />
+                </div>
               )}
               {(writeError || receiptError) && (
                 <p className="text-red-400 text-sm mt-3 text-center">
@@ -423,16 +438,6 @@ export function HomeTab() {
                 </p>
               )}
             </>
-          )}
-          {isConfirmed && (
-            <p className="text-green-400 text-sm mt-3 text-center font-medium">
-              Mint Successful! 🎉
-            </p>
-          )}
-          {(writeError || receiptError) && (
-            <p className="text-red-400 text-sm mt-3 text-center">
-              Error: Transaction failed or was rejected.
-            </p>
           )}
 
           <p className="text-white/50 text-xs mt-4 text-center">
