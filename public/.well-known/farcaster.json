@@ -5,8 +5,8 @@
     "signature": "rV9EwOFrWey1zcaWrjegMaVesRp4+2ixSdVve/wWZsEWUen2sbTBw2HW6aGIYSO803G4WVZsGVyEPUi/v2XfRhw="
   },
   "frame": {
-    "version": "1",
     "name": "Base For Kids",
+    "version": "1",
     "iconUrl": "https://base-for-kids.vercel.app/icon.png",
     "homeUrl": "https://base-for-kids.vercel.app",
     "imageUrl": "https://base-for-kids.vercel.app/Base-for-kids-cover.png",
@@ -22,18 +22,12 @@
     ],
     "heroImageUrl": "https://base-for-kids.vercel.app/Base-for-kids-cover.png",
     "tags": [
-      "base-for-kids",
-      "base",
-      "charity",
-      "christmas",
-      "kids",
-      "nft",
-      "social-impact"
+      "base-for-kids"
     ],
     "tagline": "Mint NFTs, fund gifts",
     "ogTitle": "Base For Kids",
     "ogImageUrl": "https://base-for-kids.vercel.app/Base-for-kids-cover.png",
-    "ogDescription": "Every mint funds a Christmas gift for an abandoned child and grants lasting benefits as part of the Base For Kids community.",
+    "ogDescription": "Every mint funds a Xmas gift for an abandoned child and grants benefits as a part of Base For Kids",
     "castShareUrl": "https://warpcast.com/~/compose?text=Check+out+Base+For+Kids%21+Mint+NFTs+and+fund+Christmas+gifts+for+abandoned+children+on+Base",
     "developer": {
       "name": "Base For Kids Team",
