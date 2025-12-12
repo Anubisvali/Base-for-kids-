@@ -1,9 +1,4 @@
 {
-  "accountAssociation": {
-    "header": "eyJmaWQiOjM1MDA5NSwidHlwZSI6ImF1dGgiLCJrZXkiOiIweDQwZWYwYzBDOTFlMWZFNzM5RTVFMThmQzQwMzEwMTRiQ2ZkODcxNzMifQ",
-    "payload": "eyJkb21haW4iOiJiYXNlLWZvci1raWRzLnZlcmNlbC5hcHAifQ",
-    "signature": "rV9EwOFrWey1zcaWrjegMaVesRp4+2ixSdVve/wWZsEWUen2sbTBw2HW6aGIYSO803G4WVZsGVyEPUi/v2XfRhw="
-  },
   "frame": {
     "name": "Base For Kids",
     "version": "1",
@@ -29,5 +24,10 @@
     "ogImageUrl": "https://base-for-kids.vercel.app/Base-for-kids-cover.png",
     "ogDescription": "Every mint funds a Xmas gift for an abandoned child and grants benefits as a part of Base For Kids",
     "castShareUrl": "https://warpcast.com/~/compose?text=Check+out+Base+For+Kids%21+Mint+NFTs+and+fund+Christmas+gifts+for+abandoned+children+on+Base"
+  },
+  "accountAssociation": {
+    "header": "eyJmaWQiOjM1MDA5NSwidHlwZSI6ImF1dGgiLCJrZXkiOiIweDQwZWYwYzBDOTFlMWZFNzM5RTVFMThmQzQwMzEwMTRiQ2ZkODcxNzMifQ",
+    "payload": "eyJkb21haW4iOiJiYXNlLWZvci1raWRzLnZlcmNlbC5hcHAifQ",
+    "signature": "rV9EwOFrWey1zcaWrjegMaVesRp4+2ixSdVve/wWZsEWUen2sbTBw2HW6aGIYSO803G4WVZsGVyEPUi/v2XfRhw="
   }
 }
