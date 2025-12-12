@@ -8,7 +8,6 @@
     "buttonTitle": "Mint Now 🎁",
     "splashImageUrl": "https://base-for-kids.vercel.app/splash.png",
     "splashBackgroundColor": "#000000",
-    "webhookUrl": "https://base-for-kids.vercel.app/api/webhook",
     "subtitle": "Mint with purpose on Base",
     "description": "Every mint funds a Christmas gift for an abandoned child and grants lasting benefits as part of the Base For Kids community.",
     "primaryCategory": "social",
