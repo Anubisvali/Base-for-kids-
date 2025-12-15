@@ -195,13 +195,13 @@ export function HomeTab({ setActiveTab }: HomeTabProps = {}) {
         args: [
           address,
           BigInt(quantity),
-          '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+          '0x0000000000000000000000000000000000000000', // ETH nativ
           MINT_PRICE_WEI,
           {
             proof: [],
             quantityLimitPerWallet: 0n,
-            pricePerToken: 0n,
-            currency: '0x0000000000000000000000000000000000000000'
+            pricePerToken: MINT_PRICE_WEI, // Corectat: folosește MINT_PRICE_WEI în loc de 0n
+            currency: '0x0000000000000000000000000000000000000000' // ETH nativ
           },
           '0x'
         ], 
