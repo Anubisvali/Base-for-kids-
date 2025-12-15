@@ -25,7 +25,7 @@ export function HomeTab({ setActiveTab }: HomeTabProps = {}) {
   const handleSetActiveTab = setActiveTabFromSDK || setActiveTab;
   
   // Calculează valoarea totală (Preț * Cantitate) în Wei
-  const totalValue = BigInt(quantity) * MINT_PRICE_WEI;
+  // Va fi recalculat în handleMint folosind prețul din claim condition
   const pricePerNFT = Number(MINT_PRICE_WEI) / 10**18;
   
   // Hook-uri Wagmi pentru a scrie și a monitoriza tranzacția
@@ -89,6 +89,16 @@ export function HomeTab({ setActiveTab }: HomeTabProps = {}) {
   const claimCondition = claimConditionData 
     ? (Array.isArray(claimConditionData) ? claimConditionData[0] : claimConditionData)
     : null;
+
+  // Extrage pricePerToken și currency din claim condition dacă există
+  const activePricePerToken = claimCondition?.pricePerToken !== undefined 
+    ? (typeof claimCondition.pricePerToken === 'bigint' ? claimCondition.pricePerToken : BigInt(claimCondition.pricePerToken || 0))
+    : MINT_PRICE_WEI;
+  const activeCurrency = claimCondition?.currency || '0x0000000000000000000000000000000000000000';
+  
+  // Calculează valoarea totală folosind prețul din claim condition
+  const totalValue = BigInt(quantity) * activePricePerToken;
+  const activePricePerNFT = Number(activePricePerToken) / 10**18;
 
   // Actualizează totalul mintuit după fiecare mint reușit
   useEffect(() => {
@@ -188,6 +198,20 @@ export function HomeTab({ setActiveTab }: HomeTabProps = {}) {
     });
 
     try {
+      // Folosește valorile din claim condition dacă sunt disponibile, altfel folosește valorile default
+      const currencyToUse = activeCurrency;
+      const pricePerTokenToUse = activePricePerToken;
+      
+      // Recalculează totalValue dacă prețul din claim condition este diferit
+      const totalValueToUse = BigInt(quantity) * pricePerTokenToUse;
+      
+      console.log('📋 Claim parameters:', {
+        currency: currencyToUse,
+        pricePerToken: pricePerTokenToUse.toString(),
+        totalValue: totalValueToUse.toString(),
+        quantity,
+      });
+
       writeContract({
         address: BFK_CONTRACT_ADDRESS,
         abi: BFK_ABI,
@@ -195,17 +219,17 @@ export function HomeTab({ setActiveTab }: HomeTabProps = {}) {
         args: [
           address,
           BigInt(quantity),
-          '0x0000000000000000000000000000000000000000', // ETH nativ
-          MINT_PRICE_WEI,
+          currencyToUse,
+          pricePerTokenToUse,
           {
             proof: [],
-            quantityLimitPerWallet: 0n,
-            pricePerToken: MINT_PRICE_WEI, // Corectat: folosește MINT_PRICE_WEI în loc de 0n
-            currency: '0x0000000000000000000000000000000000000000' // ETH nativ
+            quantityLimitPerWallet: 0n, // 0 = fără limită pentru public sale
+            pricePerToken: 0n, // 0 pentru public sale - prețul este setat în claim condition
+            currency: '0x0000000000000000000000000000000000000000' // 0x0 pentru public sale - currency este setat în claim condition
           },
           '0x'
         ], 
-        value: totalValue,
+        value: totalValueToUse,
         chainId: 8453,
       });
       console.log('✅ writeContract called successfully');
@@ -350,11 +374,11 @@ export function HomeTab({ setActiveTab }: HomeTabProps = {}) {
           <div className="flex justify-between items-center mb-4">
             <div>
               <p className="text-white/70 text-sm">Price per NFT</p>
-              <p className="text-green-400 font-bold text-lg">{pricePerNFT} ETH</p>
+              <p className="text-green-400 font-bold text-lg">{activePricePerNFT} ETH</p>
             </div>
             <div className="text-right">
               <p className="text-white/70 text-sm">Total</p>
-              <p className="text-green-400 font-bold text-lg">{(pricePerNFT * quantity).toFixed(5)} ETH</p>
+              <p className="text-green-400 font-bold text-lg">{(activePricePerNFT * quantity).toFixed(5)} ETH</p>
             </div>
           </div>
 
